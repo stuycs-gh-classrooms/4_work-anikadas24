@@ -10,10 +10,16 @@ void setup() {
   yvals = new int[MAX_POINTS];
   numPoints = 0;
 
-  makeLines(xvals, yvals, 10);
   drawLines(xvals, yvals);
 }//setup
 
+void draw () {
+  background (0);
+}
+
+void mousePressed () {
+  circle(mouseX, mouseY, 5);
+}
 
 void makeLines(int[] xs, int[] ys, int points) {
   for (int i=0; i < points; i++) {
@@ -35,7 +41,3 @@ void drawLines(int[] xs, int[] ys) {
   }//for
 
 }//drawLines
-
-void mousePressed () {
-  circle(mouseX, mouseY, 5);
-}
