@@ -26,29 +26,33 @@ void draw() {
 }//draw
 
 void keyPressed() {
-  if (key == ' ') {
-    b.reset();
-  }//reset
-  else if (key == CODED) {
-    if (keyCode == UP) {
-      b.changeSpeed(0, -1);
-    }//up
-    else if (keyCode == DOWN) {
-      b.changeSpeed(0, 1);
-    }//down
-    else if (keyCode == LEFT) {
-      b.changeSpeed(-1, 0);
-    }//left
-    else if (keyCode == RIGHT) {
-      b.changeSpeed(1, 0);
-    }//right
-  }//non ASCII keys
+  for (int i=0; i<balls.length; i++) {
+    if (key == ' ') {
+      balls[i] .reset();
+    }//reset
+    else if (key == CODED) {
+      if (keyCode == UP) {
+        balls[i].changeSpeed(0, -1);
+      }//up
+      else if (keyCode == DOWN) {
+        balls[i].changeSpeed(0, 1);
+      }//down
+      else if (keyCode == LEFT) {
+        balls[i].changeSpeed(-1, 0);
+      }//left
+      else if (keyCode == RIGHT) {
+        balls[i].changeSpeed(1, 0);
+      }
+    }
+  }
 }
-
+  
 void mousePressed() {
-  if ( b.onBall(mouseX, mouseY) ) {
-    score+= b.getScoreValue();
-    b.reset();
-    println(score);
+  for (int i=0; i<balls.length; i++) {
+    if (balls[i].onBall(mouseX, mouseY) ) {
+      score+= balls[i].getScoreValue();
+      b.reset();
+      println(score);
+    }
   }//hit
 }//mousePressed
