@@ -20,6 +20,9 @@ void draw() {
      if (balls[i].collisionCheck(balls[k])){
       balls[i].setColor(COLLISION_COLOR);
      }
+     else {
+      balls[i].setColor(SAFE_COLOR);
+     }
     }
    balls[i].display();
    balls[i].move();
