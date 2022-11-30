@@ -15,8 +15,14 @@ void setup() {
 void draw() {
   background(0);
   for (int i=0; i<balls.length; i++) {
-    balls[i].display();
-    balls[i].move();
+    balls[i].c = SAFE_COLOR; 
+    for (int k = 0; k < balls.length; k++){
+     if (balls[i].collisionCheck(balls[k])){
+      balls[i].setColor(COLLISION_COLOR);
+     }
+    }
+   balls[i].display();
+   balls[i].move();
   }
 }//draw
 
